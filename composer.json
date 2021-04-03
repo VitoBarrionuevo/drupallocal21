@@ -44,6 +44,7 @@
     ],
     "require": {
         "balbuf/drupal-libraries-installer": "^1.0",
+        "drupal/admin_toolbar": "^3.0",
         "drupal/bootstrap": "^3.23",
         "drupal/config_split": "^1.7",
         "drupal/console": "~1.0",
