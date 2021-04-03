@@ -1,0 +1,32 @@
+{#{ dump(vars) }#}
+<div>
+	<a id="" class="add_button" href="/add_new">Add New</a>
+</div>
+
+<div class="form_list">
+	<table>
+		<tr>
+			<th>IDENTIFICADOR</th>
+			<th>NOMBRE Y APELLIDO</th>
+			<th>ACCIONES</th>
+		</tr>
+		{% for var in vars.listado %}
+			<tr>
+				<td>{{ var.id }}</td>
+				<td>
+					<a href="">
+						{{ var.nombre }} {{ var.apellido }}
+					</a>
+				</td>
+				<td>
+					<a href="" class="add_button" >EDITAR</a>
+					<a href="/delete_users/{{ var.id }}" class="add_button" >BORRAR</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+
+{% for page in vars.pages %}
+	<a href='/?page={{page}}'>{{page}}</a>
+{% endfor %}
