@@ -1,0 +1,30 @@
+name: drupallocal21
+recipe: drupal8
+config:
+  webroot: web
+  xdebug: true
+  config:
+    php: ./php.ini
+proxy:
+  phpmyadmin:
+    - pma.drupallocal21.lndo.site
+  mailhog:
+    - mail.drupallocal21.lndo.site
+tooling:
+  drupal:
+    cmd: "/app/vendor/bin/drupal --root=/app/wwwroot"
+services:
+  appserver:
+    composer_version: 1-latest
+    overrides:
+      environment:
+        DRUSH_OPTIONS_URI: "http://drupallocal21.lndo.site"
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+    portforward: true
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database

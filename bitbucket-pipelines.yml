@@ -1,0 +1,92 @@
+image: php:7
+
+pipelines:
+  branches:
+    new-development:
+      - step:
+          name: Build
+          script:
+            - apt-get update && apt-get install -y zip
+            - sed -i s/__DRUPAL_HASH_SALT__/$DRUPAL_HASH_SALT/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_DB_HOST__/$DRUPAL_DB_HOST_DEV/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_DB_USER__/$DRUPAL_DB_USER_DEV/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_DB_PASS__/$DRUPAL_DB_PASS_DEV/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_DB_DATABASE__/$DRUPAL_DB_DATABASE_DEV/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_CONFIG_SYNC_DIRECTORY__/$DRUPAL_CONFIG_SYNC_DIRECTORY/g bitbucket-pipelines/settings.php
+            - zip -r deploy_dev.zip .
+          artifacts:
+            - deploy_dev.zip
+      - step:
+          name: Upload to S3
+          script:
+            - pipe: atlassian/aws-code-deploy:0.5.4
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'us-east-1'
+                APPLICATION_NAME: 'gcom-nyc-dot'
+                COMMAND: 'upload'
+                ZIP_FILE: 'deploy_dev.zip'
+                S3_BUCKET: 'gcom-nyc-dot'
+                VERSION_LABEL: 'dev'
+      - step:
+          name: Deploy
+          script:
+            - pipe: atlassian/aws-code-deploy:0.5.4
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'us-east-1'
+                APPLICATION_NAME: 'gcom-nyc-dot'
+                COMMAND: 'deploy'
+                DEPLOYMENT_GROUP: 'gcom-nyc-dot_dev'
+                WAIT: 'true'
+                IGNORE_APPLICATION_STOP_FAILURES: 'true'
+                FILE_EXISTS_BEHAVIOR: 'OVERWRITE'
+                S3_BUCKET: 'gcom-nyc-dot'
+                VERSION_LABEL: 'dev'
+                BUNDLE_TYPE: 'zip'
+    master:
+      - step:
+          name: Build
+          script:
+            - apt-get update && apt-get install -y zip
+            - sed -i s/__DRUPAL_HASH_SALT__/$DRUPAL_HASH_SALT/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_DB_HOST__/$DRUPAL_DB_HOST/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_DB_USER__/$DRUPAL_DB_USER/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_DB_PASS__/$DRUPAL_DB_PASS/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_DB_DATABASE__/$DRUPAL_DB_DATABASE/g bitbucket-pipelines/settings.php
+            - sed -i s/__DRUPAL_CONFIG_SYNC_DIRECTORY__/$DRUPAL_CONFIG_SYNC_DIRECTORY/g bitbucket-pipelines/settings.php
+            - zip -r deploy.zip .
+          artifacts:
+            - deploy.zip
+      - step:
+          name: Upload to S3
+          script:
+            - pipe: atlassian/aws-code-deploy:0.5.4
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'us-east-1'
+                APPLICATION_NAME: 'gcom-nyc-dot'
+                COMMAND: 'upload'
+                ZIP_FILE: 'deploy.zip'
+                S3_BUCKET: 'gcom-nyc-dot'
+                VERSION_LABEL: 'latest'
+      - step:
+          name: Deploy
+          script:
+            - pipe: atlassian/aws-code-deploy:0.5.4
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'us-east-1'
+                APPLICATION_NAME: 'gcom-nyc-dot'
+                COMMAND: 'deploy'
+                DEPLOYMENT_GROUP: 'gcom-nyc-dot'
+                WAIT: 'true'
+                IGNORE_APPLICATION_STOP_FAILURES: 'true'
+                FILE_EXISTS_BEHAVIOR: 'OVERWRITE'
+                S3_BUCKET: 'gcom-nyc-dot'
+                VERSION_LABEL: 'latest'
+                BUNDLE_TYPE: 'zip'
