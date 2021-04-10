@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains custom_module_tosky.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function custom_module_tosky_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the custom_module_tosky module.
+    case 'help.page.custom_module_tosky':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('El modulo del Tosky') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_module_tosky_theme() {
+  return [
+    'custom_module_tosky' => [
+      'render element' => 'children',
+    ],
+  ];
+}
