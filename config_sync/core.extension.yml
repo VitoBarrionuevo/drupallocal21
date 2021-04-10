@@ -12,7 +12,9 @@ module:
   contact: 0
   contextual: 0
   custom_module_d21: 0
+  custom_module_jere: 0
   custom_module_seba: 0
+  custom_module_tosky: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
