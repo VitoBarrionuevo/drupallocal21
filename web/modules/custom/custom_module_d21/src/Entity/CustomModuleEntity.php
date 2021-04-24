@@ -119,6 +119,25 @@ class CustomModuleEntity extends ContentEntityBase implements CustomModuleEntity
       ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
+    $fields['dni'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('DNI'))
+      ->setSettings([
+        'max_length' => 8,
+        'text_processing' => 0,
+      ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => -4,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['status']->setDescription(t('A boolean indicating whether the Custom module entity is published.'))
       ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
@@ -135,5 +154,4 @@ class CustomModuleEntity extends ContentEntityBase implements CustomModuleEntity
 
     return $fields;
   }
-
 }
