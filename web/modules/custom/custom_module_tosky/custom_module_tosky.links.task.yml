@@ -1,0 +1,21 @@
+# Custom module entity routing definition
+custom_module_entity.settings_tab:
+  route_name: custom_module_entity.settings
+  title: 'Settings'
+  base_route: custom_module_entity.settings
+
+entity.custom_module_entity.canonical:
+  route_name: entity.custom_module_entity.canonical
+  base_route: entity.custom_module_entity.canonical
+  title: 'View'
+
+entity.custom_module_entity.edit_form:
+  route_name: entity.custom_module_entity.edit_form
+  base_route: entity.custom_module_entity.canonical
+  title: 'Edit'
+
+entity.custom_module_entity.delete_form:
+  route_name:  entity.custom_module_entity.delete_form
+  base_route:  entity.custom_module_entity.canonical
+  title: Delete
+  weight: 10
