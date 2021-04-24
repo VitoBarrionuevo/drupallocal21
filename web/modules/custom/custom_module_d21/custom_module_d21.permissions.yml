@@ -1,0 +1,20 @@
+add custom module entity entities:
+  title: 'Create new Custom module entity entities'
+
+administer custom module entity entities:
+  title: 'Administer Custom module entity entities'
+  description: 'Allow to access the administration form to configure Custom module entity entities.'
+  restrict access: true
+
+delete custom module entity entities:
+  title: 'Delete Custom module entity entities'
+
+edit custom module entity entities:
+  title: 'Edit Custom module entity entities'
+
+view published custom module entity entities:
+  title: 'View published Custom module entity entities'
+
+view unpublished custom module entity entities:
+  title: 'View unpublished Custom module entity entities'
+

@@ -1,0 +1,5 @@
+entity.custom_module_entity.add_form:
+  route_name: entity.custom_module_entity.add_form
+  title: 'Add Custom module entity'
+  appears_on:
+    - entity.custom_module_entity.collection
