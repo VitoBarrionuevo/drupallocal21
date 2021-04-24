@@ -1,0 +1,14 @@
+
+# Custom module entity menu items definition
+entity.custom_module_entity.collection:
+  title: 'Custom module entity list'
+  route_name: entity.custom_module_entity.collection
+  description: 'List Custom module entity entities'
+  parent: system.admin_structure
+  weight: 100
+
+custom_module_entity.admin.structure.settings:
+  title: 'Custom module entity settings'
+  description: 'Configure Custom module entity entities'
+  route_name: custom_module_entity.settings
+  parent: system.admin_structure
