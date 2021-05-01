@@ -22,6 +22,22 @@ class ProfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    //checkbox
+    //radios
+    //datetime
+    //email
+    //file
+    //image
+    //integer
+    //link
+    //list_string dropdown select
+    //password
+    //string
+    //text_long
+
+
+
+
     $form['dni'] = [
       '#type' => 'number',
       '#title' => $this->t('D.N.I.'),
@@ -73,6 +89,12 @@ class ProfileForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $values = $form_state->getValues();
+
+    //abrir la entidad
+    //asignar valores
+    //guardar entidad
+
     // Display result.
     foreach ($form_state->getValues() as $key => $value) {
       \Drupal::messenger()->addMessage($key . ': ' . ($key === 'text_format' ? $value['value'] : $value));
