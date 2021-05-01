@@ -27,9 +27,14 @@ function custom_module_d21_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_theme().
  */
 function custom_module_d21_theme() {
-  return [
-    'custom_module_d21' => [
-      'render element' => 'children',
-    ],
+
+  $themes['profile_form'] = [
+    'render element' => 'form'
   ];
+
+  $themes['custom_module_d21'] = [
+    'render element' => 'children',
+  ];
+
+  return $themes;
 }
