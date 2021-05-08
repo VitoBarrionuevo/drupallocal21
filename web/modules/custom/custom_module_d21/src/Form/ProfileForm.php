@@ -3,6 +3,7 @@
 namespace Drupal\custom_module_d21\Form;
 
 use Drupal\Core\Form\FormBase;
+use Drupal\custom_module_d21\Entity\CustomModuleEntity;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
@@ -153,6 +154,20 @@ class ProfileForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
+
+    //$custom_module_entity = \Drupal::entityTypeManager()->getStorage('custom_module_entity')->load($file->id());
+    //$node = \Drupal::entityTypeManager()->getStorage('custom_module_entity')->load($nid);
+    
+    $profile_entity = \Drupal::entityTypeManager()->getStorage('profile_entity')->create(array(
+      'title' => 'your title',
+      'first_name' => $values['first_name'],
+      'uid' => '1',
+      'dni' => $values['dni'],
+      'textarea_long' => 'QWEQWEQWEQWEQWE',
+    ));
+
+    //$profile_entity->save();
+
 
     //abrir la entidad
     //asignar valores
