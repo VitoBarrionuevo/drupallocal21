@@ -195,8 +195,9 @@ class ProfileForm extends FormBase
     // Display result.
     $values = $form_state->getValues();
     $profile_entity = \Drupal::entityTypeManager()->getStorage('profile_entity')->create(array(
+      //traer y que quede todo como esto 'dni' => $values['dni'],
       'title' => 'your title',
-      'first_name' => $values['first_name'],
+      'name' => $values['name'],
       'uid' => '1',
       'dni' => $values['dni'],
       'textarea_long' => 'QWEQWEQWEQWEQWE',

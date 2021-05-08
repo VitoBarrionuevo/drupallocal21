@@ -78,7 +78,7 @@ class ProfileEntity extends ContentEntityBase implements ProfileEntityInterface 
 
     // Add the published field.
     $fields += static::publishedBaseFieldDefinitions($entity_type);
-
+// crear aca todos los machine names del profile yq ue coincidan
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the Profile entity entity.'))
