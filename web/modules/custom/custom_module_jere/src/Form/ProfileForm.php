@@ -3,6 +3,7 @@
 namespace Drupal\custom_module_jere\Form;
 
 use Drupal\Core\Form\FormBase;
+use Drupal\custom_module_jere\Entity\CustomModuleEntity;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
@@ -192,6 +193,15 @@ class ProfileForm extends FormBase
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
     // Display result.
+    $values = $form_state->getValues();
+    $profile_entity = \Drupal::entityTypeManager()->getStorage('profile_entity')->create(array(
+      'title' => 'your title',
+      'first_name' => $values['first_name'],
+      'uid' => '1',
+      'dni' => $values['dni'],
+      'textarea_long' => 'QWEQWEQWEQWEQWE',
+    ));
+
     foreach ($form_state->getValues() as $key => $value) {
       \Drupal::messenger()->addMessage($key . ': ' . ($key === 'text_format' ? $value['value'] : $value));
     }
