@@ -6,13 +6,14 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
 
 /**
  * Implements hook_help().
  */
 function custom_module_d21_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the custom_module_d21 module.
+      // Main module help for the custom_module_d21 module.
     case 'help.page.custom_module_d21':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
@@ -37,4 +38,32 @@ function custom_module_d21_theme() {
   ];
 
   return $themes;
+}
+
+function custom_module_d21_update_8101() {
+  $entity_type = 'custom_module_entity';
+  $name = 'dni';
+  $update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  $field_to_add = BaseFieldDefinition::create('string')
+    ->setLabel(t('DNI'))
+    ->setSettings([
+      'max_length' => 8,
+      'text_processing' => 0,
+    ])
+    ->setDefaultValue('')
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'string',
+      'weight' => -4,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'string_textfield',
+      'weight' => -4,
+    ])
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayConfigurable('view', TRUE);
+
+  // Install the new definition.
+  $update_manager->installFieldStorageDefinition($name, $entity_type, $entity_type, $field_to_add);
 }

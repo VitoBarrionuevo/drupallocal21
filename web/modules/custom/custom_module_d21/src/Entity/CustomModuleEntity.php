@@ -138,6 +138,22 @@ class CustomModuleEntity extends ContentEntityBase implements CustomModuleEntity
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['textarea_long'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Textarea Long'))
+      ->setTranslatable(false)
+      ->setDisplayOptions('view', [
+        'label' => 'visible',
+        'type' => 'text_default',
+        'weight' => 16,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'text_textarea',
+        'weight' => 16,
+        'rows' => 6,
+      ])
+      ->setDisplayConfigurable('view', true)
+      ->setDisplayConfigurable('form', true);
+
     $fields['status']->setDescription(t('A boolean indicating whether the Custom module entity is published.'))
       ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
