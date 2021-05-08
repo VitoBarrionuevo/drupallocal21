@@ -17,35 +17,3 @@ view published custom_module_entity entities:
 
 view unpublished custom_module_entity entities:
   title: 'View unpublished Custom_module_entity entities'
-
-add custom form entities:
-  title: 'Create new Custom form entities'
-
-administer custom form entities:
-  title: 'Administer Custom form entities'
-  description: 'Allow to access the administration form to configure Custom form entities.'
-  restrict access: true
-
-delete custom form entities:
-  title: 'Delete Custom form entities'
-
-edit custom form entities:
-  title: 'Edit Custom form entities'
-
-view published custom form entities:
-  title: 'View published Custom form entities'
-
-view unpublished custom form entities:
-  title: 'View unpublished Custom form entities'
-
-view all custom form revisions:
-  title: 'View all Custom form revisions'
-
-revert all custom form revisions:
-  title: 'Revert all Custom form revisions'
-  description: 'Role requires permission <em>view Custom form revisions</em> and <em>edit rights</em> for custom form entities in question or <em>administer custom form entities</em>.'
-
-delete all custom form revisions:
-  title: 'Delete all revisions'
-  description: 'Role requires permission to <em>view Custom form revisions</em> and <em>delete rights</em> for custom form entities in question or <em>administer custom form entities</em>.'
-
