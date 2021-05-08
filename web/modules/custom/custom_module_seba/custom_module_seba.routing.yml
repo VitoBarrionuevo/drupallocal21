@@ -1,7 +1,0 @@
-custom_module_seba.profile_form:
-  path: '/custom_module_seba/form/profile'
-  defaults:
-    _form: '\Drupal\custom_module_seba\Form\ProfileForm'
-    _title: 'ProfileForm'
-  requirements:
-    _access: 'TRUE'
