@@ -1,7 +1,0 @@
-custom_module_tosky.profile_form:
-  path: '/custom_module_tosky/form/profile'
-  defaults:
-    _form: '\Drupal\custom_module_tosky\Form\ProfileForm'
-    _title: 'ProfileForm'
-  requirements:
-    _access: 'TRUE'

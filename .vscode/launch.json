@@ -8,8 +8,8 @@
           "type": "chrome",
           "request": "launch",
           "name": "Launch Chrome against localhost",
-          "url": "https://drupallocal21.lndo.site/",
-          "webRoot": "D:\\proyectos\\drupallocal21"
+          "url": "https://nyc-dot.lndo.site/",
+          "webRoot": "D:\\proyectos\\nyc-dot"
       },
       {
           "name": "Listen for XDebug",
