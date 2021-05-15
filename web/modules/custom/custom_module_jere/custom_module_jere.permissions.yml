@@ -16,4 +16,23 @@ view published custom_module_entity entities:
   title: 'View published Custom_module_entity entities'
 
 view unpublished custom_module_entity entities:
-  title: 'View unpublished Custom_module_entity entities'
+  title: 'View unpublished Custom_module_entity entities'add profile entity entities:
+  title: 'Create new Profile entity entities'
+
+administer profile entity entities:
+  title: 'Administer Profile entity entities'
+  description: 'Allow to access the administration form to configure Profile entity entities.'
+  restrict access: true
+
+delete profile entity entities:
+  title: 'Delete Profile entity entities'
+
+edit profile entity entities:
+  title: 'Edit Profile entity entities'
+
+view published profile entity entities:
+  title: 'View published Profile entity entities'
+
+view unpublished profile entity entities:
+  title: 'View unpublished Profile entity entities'
+

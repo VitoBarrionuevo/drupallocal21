@@ -11,24 +11,25 @@
  */
 #}
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-6">{{ form.name }}</div>
-		<div class="col-sm-3">{{ form.lastname }}</div>
-		<div class="col-sm-3">{{ form.dni }}</div>
-		<div class="col-sm-3">{{ form.cuit }}</div>
-		<div class="col-sm-3">{{ form.gender }}</div>
-		<div class="col-sm-3">{{ form.country }}</div>
-		<div class="col-sm-3">{{ form.birthday }}</div>
-		<div class="col-sm-3">{{ form.email }}</div>
-		<div class="col-sm-3">{{ form.adress }}</div>
-		<div class="col-sm-3">{{ form.profile_image }}</div>
-		<div class="col-sm-3">{{ form.file_cv }}</div>
-		<div class="col-sm-3">{{ form.test_link }}</div>
-		<div class="col-sm-3">{{ form.password }}</div>
-		<div class="col-sm-3">{{ form.accept }}</div>
-		<div class="col-sm-3">{{ form.comment }}</div>
-
+	<div class="form-group row">
+		<div class="col-lg-5">{{ form.first_name }}</div>
+		<div class="col-lg-5">{{ form.last_name }}</div>
+		<div class="col-lg-2">{{ form.dni }}</div>
 	</div>
+
+	<div class="form-group row">
+		<div class="col-lg-6">{{ form.gender }}</div>
+		<div class="col-lg-6">{{ form.term_cond }}</div>
+		<div class="col-lg-6">{{ form.field_date }}</div>
+		<div class="col-lg-6">{{ form.email }}</div>
+		<div class="col-lg-6">{{ form.my_file }}</div>
+		<div class="col-lg-6">{{ form.profile_image }}</div>
+		<div class="col-lg-6">{{ form.examples_link }}</div>
+		<div class="col-lg-6">{{ form.example_select }}</div>
+		<div class="col-lg-6">{{ form.pass }}</div>
+		<div class="col-lg-6">{{ form.text }}</div>
+	</div>
+
 	<div class="row">
 		<div class="col-sm-12">{{ form.submit }}</div>
 	</div>
