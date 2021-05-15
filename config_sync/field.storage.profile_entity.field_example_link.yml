@@ -1,0 +1,19 @@
+uuid: b9d9604f-3e98-4e2b-b856-132d22de295d
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - profile_jere
+id: profile_entity.field_example_link
+field_name: field_example_link
+entity_type: profile_entity
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

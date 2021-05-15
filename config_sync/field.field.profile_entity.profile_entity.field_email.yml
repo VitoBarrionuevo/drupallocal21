@@ -1,0 +1,20 @@
+uuid: 97b3cbbf-7dab-4f5b-b180-b98e98c8e307
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile_entity.field_email
+  module:
+    - profile_jere
+id: profile_entity.profile_entity.field_email
+field_name: field_email
+entity_type: profile_entity
+bundle: profile_entity
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

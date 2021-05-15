@@ -24,15 +24,6 @@ class ProfileForm extends FormBase
    */
   public function buildForm(array $form, FormStateInterface $form_state)
   {
-    $form['dni'] = [
-      '#type' => 'number',
-      '#title' => $this->t('D.N.I.'),
-      '#default_value' => '',
-      '#description' => $this->t('Enter your DNI number.'),
-      '#weight' => -8,
-      '#maxlength' => 8,
-    ];
-
     $form['first_name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('First Name'),
@@ -47,6 +38,15 @@ class ProfileForm extends FormBase
       '#description' => $this->t('Enter your last name.'),
       '#description' => $this->t(''),
       '#weight' => -9,
+    ];
+
+    $form['dni'] = [
+      '#type' => 'number',
+      '#title' => $this->t('D.N.I.'),
+      '#default_value' => '',
+      '#description' => $this->t('Enter your DNI number.'),
+      '#weight' => -8,
+      '#maxlength' => 8,
     ];
 
     $form['gender'] = array(
@@ -175,7 +175,8 @@ class ProfileForm extends FormBase
       'uid' => '',
       'textarea_long' => '',
     ));
-    
+//ahora tengpo qie hacer el profile_entity => save y despues verlo en profile_ entity list; 
+//setear a los fields del field de $profile_entity los datos del profile form;
     foreach ($form_state->getValues() as $key => $value) {
       \Drupal::messenger()->addMessage($key . ': ' . ($key === 'text_format' ? $value['value'] : $value));
     }

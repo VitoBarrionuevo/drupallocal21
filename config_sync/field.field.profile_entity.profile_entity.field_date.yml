@@ -1,0 +1,21 @@
+uuid: 9d353760-e223-4595-8930-94bde35de7f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile_entity.field_date
+  module:
+    - datetime
+    - profile_jere
+id: profile_entity.profile_entity.field_date
+field_name: field_date
+entity_type: profile_entity
+bundle: profile_entity
+label: Birthday
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

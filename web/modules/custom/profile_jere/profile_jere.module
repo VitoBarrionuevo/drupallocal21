@@ -26,10 +26,15 @@ function profile_jere_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_theme().
  */
-function profile_jere_theme() {
-  return [
-    'profile_jere' => [
-      'render element' => 'children',
-    ],
+function profile_jere_theme($existing, $type, $theme, $path)
+{
+  $themes['profile_jere'] = [
+    'render element' => 'children',
+
   ];
+  $themes['profile_form'] = [
+    'render element' => 'form',
+  ];
+
+  return $themes;
 }

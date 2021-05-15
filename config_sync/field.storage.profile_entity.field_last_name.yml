@@ -1,0 +1,21 @@
+uuid: 98766d5b-08f5-4950-bd28-2cc7a9977c97
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile_jere
+id: profile_entity.field_last_name
+field_name: field_last_name
+entity_type: profile_entity
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

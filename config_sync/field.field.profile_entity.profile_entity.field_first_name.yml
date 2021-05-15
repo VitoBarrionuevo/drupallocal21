@@ -1,0 +1,20 @@
+uuid: 490d9d32-7d8c-4b83-816b-efa5bc18a03a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile_entity.field_first_name
+  module:
+    - profile_jere
+id: profile_entity.profile_entity.field_first_name
+field_name: field_first_name
+entity_type: profile_entity
+bundle: profile_entity
+label: 'First Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

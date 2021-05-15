@@ -1,0 +1,23 @@
+uuid: c93740aa-eae0-424f-8800-f2d29b2cb693
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - profile_jere
+id: profile_entity.field_my_file
+field_name: field_my_file
+entity_type: profile_entity
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
