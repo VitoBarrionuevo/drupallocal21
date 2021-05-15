@@ -1,0 +1,7 @@
+profile_module.profile_form:
+  path: '/profile_module/form/profile'
+  defaults:
+    _form: '\Drupal\profile_module\Form\ProfileForm'
+    _title: 'ProfileForm'
+  requirements:
+    _access: 'TRUE'
