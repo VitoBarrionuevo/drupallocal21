@@ -1,0 +1,21 @@
+# Profile entity routing definition
+profile_entity.settings_tab:
+  route_name: profile_entity.settings
+  title: 'Settings'
+  base_route: profile_entity.settings
+
+entity.profile_entity.canonical:
+  route_name: entity.profile_entity.canonical
+  base_route: entity.profile_entity.canonical
+  title: 'View'
+
+entity.profile_entity.edit_form:
+  route_name: entity.profile_entity.edit_form
+  base_route: entity.profile_entity.canonical
+  title: 'Edit'
+
+entity.profile_entity.delete_form:
+  route_name:  entity.profile_entity.delete_form
+  base_route:  entity.profile_entity.canonical
+  title: Delete
+  weight: 10
