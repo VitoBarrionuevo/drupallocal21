@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\custom_module_d21\Entity;
+namespace Drupal\profile_seba\Entity;
 
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
@@ -9,34 +9,34 @@ use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 
 /**
- * Defines the Custom module entity entity.
+ * Defines the Profile entity entity.
  *
- * @ingroup custom_module_d21
+ * @ingroup profile_seba
  *
  * @ContentEntityType(
- *   id = "custom_module_entity",
- *   label = @Translation("Custom module entity"),
+ *   id = "profile_entity",
+ *   label = @Translation("Profile entity"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\custom_module_d21\CustomModuleEntityListBuilder",
- *     "views_data" = "Drupal\custom_module_d21\Entity\CustomModuleEntityViewsData",
- *     "translation" = "Drupal\custom_module_d21\CustomModuleEntityTranslationHandler",
+ *     "list_builder" = "Drupal\profile_seba\ProfileEntityListBuilder",
+ *     "views_data" = "Drupal\profile_seba\Entity\ProfileEntityViewsData",
+ *     "translation" = "Drupal\profile_seba\ProfileEntityTranslationHandler",
  *
  *     "form" = {
- *       "default" = "Drupal\custom_module_d21\Form\CustomModuleEntityForm",
- *       "add" = "Drupal\custom_module_d21\Form\CustomModuleEntityForm",
- *       "edit" = "Drupal\custom_module_d21\Form\CustomModuleEntityForm",
- *       "delete" = "Drupal\custom_module_d21\Form\CustomModuleEntityDeleteForm",
+ *       "default" = "Drupal\profile_seba\Form\ProfileEntityForm",
+ *       "add" = "Drupal\profile_seba\Form\ProfileEntityForm",
+ *       "edit" = "Drupal\profile_seba\Form\ProfileEntityForm",
+ *       "delete" = "Drupal\profile_seba\Form\ProfileEntityDeleteForm",
  *     },
  *     "route_provider" = {
- *       "html" = "Drupal\custom_module_d21\CustomModuleEntityHtmlRouteProvider",
+ *       "html" = "Drupal\profile_seba\ProfileEntityHtmlRouteProvider",
  *     },
- *     "access" = "Drupal\custom_module_d21\CustomModuleEntityAccessControlHandler",
+ *     "access" = "Drupal\profile_seba\ProfileEntityAccessControlHandler",
  *   },
- *   base_table = "custom_module_entity",
- *   data_table = "custom_module_entity_field_data",
+ *   base_table = "profile_entity",
+ *   data_table = "profile_entity_field_data",
  *   translatable = TRUE,
- *   admin_permission = "administer custom module entity entities",
+ *   admin_permission = "administer profile entity entities",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name",
@@ -45,16 +45,16 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *     "published" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/custom_module_entity/{custom_module_entity}",
- *     "add-form" = "/admin/structure/custom_module_entity/add",
- *     "edit-form" = "/admin/structure/custom_module_entity/{custom_module_entity}/edit",
- *     "delete-form" = "/admin/structure/custom_module_entity/{custom_module_entity}/delete",
- *     "collection" = "/admin/structure/custom_module_entity",
+ *     "canonical" = "/admin/structure/profile_entity/{profile_entity}",
+ *     "add-form" = "/admin/structure/profile_entity/add",
+ *     "edit-form" = "/admin/structure/profile_entity/{profile_entity}/edit",
+ *     "delete-form" = "/admin/structure/profile_entity/{profile_entity}/delete",
+ *     "collection" = "/admin/structure/profile_entity",
  *   },
- *   field_ui_base_route = "custom_module_entity.settings"
+ *   field_ui_base_route = "profile_entity.settings"
  * )
  */
-class CustomModuleEntity extends ContentEntityBase implements CustomModuleEntityInterface {
+class ProfileEntity extends ContentEntityBase implements ProfileEntityInterface {
 
   use EntityChangedTrait;
   use EntityPublishedTrait;
@@ -100,7 +100,7 @@ class CustomModuleEntity extends ContentEntityBase implements CustomModuleEntity
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Custom module entity entity.'))
+      ->setDescription(t('The name of the Profile entity entity.'))
       ->setSettings([
         'max_length' => 50,
         'text_processing' => 0,
@@ -119,7 +119,7 @@ class CustomModuleEntity extends ContentEntityBase implements CustomModuleEntity
       ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
-    $fields['status']->setDescription(t('A boolean indicating whether the Custom module entity is published.'))
+    $fields['status']->setDescription(t('A boolean indicating whether the Profile entity is published.'))
       ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
         'weight' => -3,
@@ -135,4 +135,5 @@ class CustomModuleEntity extends ContentEntityBase implements CustomModuleEntity
 
     return $fields;
   }
+
 }
