@@ -1,0 +1,14 @@
+
+# Profile entity menu items definition
+entity.profile_entity.collection:
+  title: 'Profile entity list'
+  route_name: entity.profile_entity.collection
+  description: 'List Profile entity entities'
+  parent: system.admin_structure
+  weight: 100
+
+profile_entity.admin.structure.settings:
+  title: 'Profile entity settings'
+  description: 'Configure Profile entity entities'
+  route_name: profile_entity.settings
+  parent: system.admin_structure

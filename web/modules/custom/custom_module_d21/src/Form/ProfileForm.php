@@ -163,7 +163,7 @@ class ProfileForm extends FormBase {
       'first_name' => $values['first_name'],
       'uid' => '1',
       'dni' => $values['dni'],
-      'textarea_long' => 'QWEQWEQWEQWEQWE',
+      'text' => $values['text'],
     ));
 
     //$profile_entity->save();

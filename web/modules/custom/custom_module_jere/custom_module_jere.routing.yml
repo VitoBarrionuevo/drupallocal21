@@ -1,0 +1,7 @@
+custom_module_jere.profile_form:
+  path: '/custom_module_jere/form/profile'
+  defaults:
+    _form: '\Drupal\custom_module_jere\Form\ProfileForm'
+    _title: 'ProfileForm'
+  requirements:
+    _access: 'TRUE'
