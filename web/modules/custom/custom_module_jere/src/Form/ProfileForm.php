@@ -26,86 +26,29 @@ class ProfileForm extends FormBase
    */
   public function buildForm(array $form, FormStateInterface $form_state)
   {
-    $form['name'] = array(
-      '#type' => 'textfield',
-      '#title' => $this
-        ->t('Name'),
-      '#default_value' => '',
-      '#size' => 20,
-      '#attributes' => array(
-        'placeholder' => t('Please insert Name'),
-      ),
-      '#maxlength' => 20,
-    );
-
-    $form['lastname'] = array(
-      '#type' => 'textfield',
-      '#title' => $this
-        ->t('Last Name'),
-      '#default_value' => '',
-      '#size' => 20,
-      '#attributes' => array(
-        'placeholder' => t('Please insert Last Name'),
-      ),
-      '#maxlength' => 20,
-    );
-
-    $form['adress'] = array(
-      '#type' => 'textfield',
-      '#title' => $this
-        ->t('Adress'),
-      '#default_value' => '',
-      '#size' => 20,
-      '#attributes' => array(
-        'placeholder' => t('Please insert Adress'),
-      ),
-      '#maxlength' => 20,
-    );
-
-    $form['dni'] = array(
+    $form['dni'] = [
       '#type' => 'number',
-      '#title' => $this
-        ->t('DNI'),
-      '#attributes' => array(
-        'placeholder' => t('Please insert DNI'),
-      ),
-      '#maxlength' => 10,
-    );
-
-    $form['cuit'] = array(
-      '#type' => 'number',
-      '#title' => $this
-        ->t('CUIT'),
-      '#attributes' => array(
-        'placeholder' => t('Please insert CUIT'),
-      ),
-      '#maxlength' => 10,
-    );
-
-    $form['country'] = array(
-      '#type' => 'select',
-      '#title' => t('Country'),
-      '#description' => t('Select Country from the list.'),
-      '#options' => array(
-        0 => t('ARG'),
-        1 => t('CHI'),
-        2 => t('BRA'),
-      ),
-    );
-
-    $form['profile_image'] = [
-      '#type' => 'managed_file',
-      '#title' => t('Profile Picture'),
-      '#upload_validators' => array(
-        'file_validate_extensions' => array('gif png jpg jpeg'),
-        'file_validate_size' => array(25600000),
-      ),
+      '#title' => $this->t('D.N.I.'),
+      '#default_value' => '',
+      '#description' => $this->t('Enter your DNI number.'),
+      '#weight' => -8,
+      '#maxlength' => 8,
     ];
 
-    $form['file_cv'] = [
-      '#type' => 'file',
-      '#default_value' => '',
-      '#title' => t('Upload your CV'),
+    $form['first_name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('First Name'),
+      '#description' => $this->t('Enter your first name.'),
+      '#description' => $this->t(''),
+      '#weight' => -10,
+    ];
+
+    $form['last_name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Last Name'),
+      '#description' => $this->t('Enter your last name.'),
+      '#description' => $this->t(''),
+      '#weight' => -9,
     ];
 
     $form['gender'] = array(
@@ -118,55 +61,77 @@ class ProfileForm extends FormBase
       ),
     );
 
-    $form['birthday'] = [
-      '#type' => 'date',
-      '#title' => $this
-        ->t('Birthday'),
-      '#default_value' => '2020-02-05',
-    ];
-
-    $form['email'] = [
-      '#type' => 'email',
-      '#title' => $this
-        ->t('Email'),
-      '#attributes' => array(
-        'placeholder' => t('Please insert Email'),
-      ),
-      '#pattern' => '*@example.com',
-    ];
-
-    $form['accept'] = [
+    $form['term_cond'] = array(
       '#type' => 'checkbox',
-      '#title' => $this->t('I accept the terms of use of the site'),
-      '#description' => $this->t('Please read and accept the terms of use'),
+      '#title' => $this->t('Accept terms and conditions'),
+    );
+
+    $form['field_date'] = array(
+      '#type' => 'date',
+      '#title' => 'Enter Your Date of Birth',
+      '#format' => 'm/d/Y',
+      '#description' => t('i.e. 09/06/2016'),
+      '#default_value' => '',
+      '#date_date_format' => 'm/d/Y',
+    );
+
+    $form['email'] = array(
+      '#type' => 'email',
+      '#title' => $this->t('Email'),
+    );
+
+    $form['my_file'] = array(
+      '#type' => 'managed_file',
+      '#name' => 'my_file',
+      '#title' => t('File *'),
+      '#size' => 20,
+      '#description' => t('PDF format only'),
+      '#upload_location' => 'public://my_files/',
+    );
+
+    $form['profile_image'] = [
+      '#type' => 'managed_file',
+      '#title' => t('Profile Picture'),
+      '#upload_validators' => array(
+        'file_validate_extensions' => array('gif png jpg jpeg'),
+        'file_validate_size' => array(25600000),
+      ),
+      '#theme' => 'image_widget',
+      '#preview_image_style' => 'medium',
+      '#upload_location' => 'public://profile-pictures',
     ];
 
-    $form['password'] = array(
+    $form['examples_link'] = [
+      '#title' => $this->t('Serch Link'),
+      '#type' => 'url',
+      '#url' => Url::fromRoute('custom_module_d21.profile_form'),
+    ];
+
+    $form['example_select'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Select element'),
+      '#options' => [
+        '1' => $this->t('One'),
+        '2' => [
+          '2.1' => $this->t('Two point one'),
+          '2.2' => $this->t('Two point two'),
+        ],
+        '3' => $this->t('Three'),
+      ],
+    ];
+
+    $form['pass'] = array(
       '#type' => 'password',
-      '#title' => t('Password'),
-      '#description' => t('Insert a password'),
+      '#title' => $this->t('Password'),
+      '#size' => 25,
     );
 
-    $form['comment'] = array(
+    $form['text'] = array(
       '#type' => 'textarea',
-      '#title' => $this
-        ->t('You want to add a comment?'),
-      '#maxlength' => 50,
-    );
-//dos opciones de link
-    $form['test_link'] = array(
-      '#type' => 'url',
-      '#title' => $this->t('Linked-in Profile'),
-      '#size' => 30,
-      '#pattern' => '*.example.com',
-      '#description' => t('Enter your URL '),
+      '#title' => $this->t('Text'),
     );
 
-    $form['test_ink'] = [
-      '#type' => 'url',
-      '#title' => $this->t('Link title'),
-      '#url' => Url::fromRoute('entity.com'),
-    ];
+    $form['#meses'] = 'ENERO';
 
     $form['submit'] = [
       '#type' => 'submit',
@@ -196,11 +161,12 @@ class ProfileForm extends FormBase
     $values = $form_state->getValues();
     $profile_entity = \Drupal::entityTypeManager()->getStorage('profile_entity')->create(array(
       //traer y que quede todo como esto 'dni' => $values['dni'],
-      'title' => 'your title',
-      'name' => $values['name'],
+      'title' => '',
+      'name' => $values['first_name'],
       'uid' => '1',
       'dni' => $values['dni'],
-      'textarea_long' => 'QWEQWEQWEQWEQWE',
+      'pass' => $values['pass'],
+      'textarea_long' => '',
     ));
 
     foreach ($form_state->getValues() as $key => $value) {
