@@ -102,8 +102,6 @@ class ProfileEntity extends ContentEntityBase implements ProfileEntityInterface 
       ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
-      
-
     $fields['status']->setDescription(t('A boolean indicating whether the Profile entity is published.'))
       ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
