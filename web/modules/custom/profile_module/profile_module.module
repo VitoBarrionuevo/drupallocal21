@@ -27,9 +27,14 @@ function profile_module_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_theme().
  */
 function profile_module_theme() {
-  return [
-    'profile_module' => [
-      'render element' => 'children',
-    ],
+
+  $themes['profile_module'] = [
+    'render element' => 'children',
   ];
+
+  $themes['profile_form'] = [
+    'render element' => 'form',
+  ];
+
+  return $themes;
 }
