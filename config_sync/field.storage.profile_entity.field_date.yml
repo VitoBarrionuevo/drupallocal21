@@ -1,0 +1,20 @@
+uuid: 518371fe-e824-43a2-a3ae-b36b5b030e40
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - profile_jere
+id: profile_entity.field_date
+field_name: field_date
+entity_type: profile_entity
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

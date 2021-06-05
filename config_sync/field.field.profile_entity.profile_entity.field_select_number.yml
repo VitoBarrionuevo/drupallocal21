@@ -1,0 +1,21 @@
+uuid: 667f135d-a26f-4841-b3f8-d5fecec63a67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile_entity.field_select_number
+  module:
+    - options
+    - profile_jere
+id: profile_entity.profile_entity.field_select_number
+field_name: field_select_number
+entity_type: profile_entity
+bundle: profile_entity
+label: 'Select Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

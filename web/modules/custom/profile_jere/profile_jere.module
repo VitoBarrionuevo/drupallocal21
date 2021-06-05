@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Contains profile_jere.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function profile_jere_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the profile_jere module.
+    case 'help.page.profile_jere':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function profile_jere_theme($existing, $type, $theme, $path)
+{
+  $themes['profile_jere'] = [
+    'render element' => 'children',
+
+  ];
+  $themes['profile_form'] = [
+    'render element' => 'form',
+  ];
+
+  return $themes;
+}

@@ -16,7 +16,9 @@ view published custom_module_entity entities:
   title: 'View published Custom_module_entity entities'
 
 view unpublished custom_module_entity entities:
-  title: 'View unpublished Custom_module_entity entities'add profile entity entities:
+  title: 'View unpublished Custom_module_entity entities'
+  
+add profile entity entities:
   title: 'Create new Profile entity entities'
 
 administer profile entity entities:

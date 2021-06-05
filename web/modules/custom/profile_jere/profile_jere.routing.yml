@@ -1,0 +1,7 @@
+profile_jere.profile_form:
+  path: '/profile_jere/form/profile'
+  defaults:
+    _form: '\Drupal\profile_jere\Form\ProfileForm'
+    _title: 'ProfileForm'
+  requirements:
+    _access: 'TRUE'

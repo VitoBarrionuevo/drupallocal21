@@ -1,0 +1,30 @@
+uuid: 6f435978-f084-42e8-9f03-0da8ed088d29
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - profile_jere
+id: profile_entity.field_profile_image
+field_name: field_profile_image
+entity_type: profile_entity
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

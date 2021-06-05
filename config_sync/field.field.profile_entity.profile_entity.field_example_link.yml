@@ -1,0 +1,23 @@
+uuid: ae2debc2-7ad7-41c2-8e34-8ccc2f42221d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile_entity.field_example_link
+  module:
+    - link
+    - profile_jere
+id: profile_entity.profile_entity.field_example_link
+field_name: field_example_link
+entity_type: profile_entity
+bundle: profile_entity
+label: 'Example Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

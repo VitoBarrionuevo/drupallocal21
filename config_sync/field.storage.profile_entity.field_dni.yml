@@ -1,0 +1,21 @@
+uuid: a190b001-69a4-4ecf-93e2-78975c3d3fb5
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile_jere
+id: profile_entity.field_dni
+field_name: field_dni
+entity_type: profile_entity
+type: string
+settings:
+  max_length: 8
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

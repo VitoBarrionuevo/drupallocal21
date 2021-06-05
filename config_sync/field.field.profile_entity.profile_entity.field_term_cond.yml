@@ -1,0 +1,24 @@
+uuid: 095bd8bb-e650-4aa5-8d04-c3f86376e209
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile_entity.field_term_cond
+  module:
+    - profile_jere
+id: profile_entity.profile_entity.field_term_cond
+field_name: field_term_cond
+entity_type: profile_entity
+bundle: profile_entity
+label: 'Terms and Conditions'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
