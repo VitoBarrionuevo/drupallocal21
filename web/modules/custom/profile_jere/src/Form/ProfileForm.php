@@ -159,7 +159,7 @@ class ProfileForm extends FormBase
     $values = $form_state->getValues();
     $profile_entity = \Drupal::entityTypeManager()->getStorage('profile_entity')->create(array(
       'title' => '',
-      'first_name' => $values['first_name'],
+      'field_first_name' => $values['first_name'],//tiene que quedar asi
       'last_name' => $values['last_name'],
       'dni' => $values['dni'],
       'gender' => $values['gender'],
@@ -175,6 +175,8 @@ class ProfileForm extends FormBase
       'uid' => '',
       'textarea_long' => '',
     ));
+
+    $profile_entity->save();
 //ahora tengpo qie hacer el profile_entity => save y despues verlo en profile_ entity list; 
 //setear a los fields del field de $profile_entity los datos del profile form;
     foreach ($form_state->getValues() as $key => $value) {
